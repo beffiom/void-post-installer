@@ -40,7 +40,7 @@ sleep 3s
 	sudo xbps-install -Sy linux-headers xorg-minimal xf86-input-libinput xf86-input-synaptics xf86-video-fbdev xautolocok xbacklight xclip xinit xmodmap xscreensaver xwallpaper libva
 	sudo xbps-install -Sy xf86-video-intel libva-intel-driver intel-ucode
 	sudo xbps-install -Sy alsa-utils pulseaudio alsa-plugins-pulseaudio
-	sudo xbps-install -Sy acpi acpid bash-completion connman dunst htop libnotify neovim pulsemixer redshit wpa_supplicant unclutter-xfixes
+	sudo xbps-install -Sy acpi acpid bash-completion connman dash dunst htop libnotify neovim pulsemixer redshit wpa_supplicant unclutter-xfixes
 	sudo xbps-install -Sy p7zip libzip unzip zip
 	sudo xbps-install -Sy python python-pip python-pyperclip
 	sudo xbps-install -Sy fontconfig font-inconsolata-otf font-libertine-otf fonts-droid-ttf font-awesome breeze-purple-cursor-theme
@@ -68,9 +68,15 @@ sleep 3s
 	cd ~/.config/slock
 	sudo make cleak install
 
+	# install ttf-mononoki
+	sudo mv ~/.config/appearance/fonts/mononoki /usr/local/share/fonts/mononoki
+	sudo chown root:staff /usr/local/share/fonts/mononoki -R
+	sudo chmod 644 /usr/local/share/fonts/mononoki/* -R
+	sudo chmod 755 /usr/local/share/fonts/mononoki
+	sudo fc-cache -fv
+
 	sudo xbps-remove -Ry nano
-	sudo xbps-remove -oy
-	sudo xbps-remove -O
+	sudo xbps-remove -Ooy
 
 clear
 
@@ -100,10 +106,6 @@ sleep 3s
 	sudo hwclock --systohc --utc
 
 	sudo ln -s /bin/dash /bin/sh
-
-	sudo mv -v ~/.config/appearance/fonts/* /usr/share/fonts/truetype/
-	sudo rm -rvf ~/.config/appearance/fonts/
-	sudo fc-cache -f -v
 
 	echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 	echo "LANG=en_US.UTF-8" >> /etc/environment

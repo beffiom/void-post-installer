@@ -40,7 +40,7 @@ sleep 3s
 	sudo xbps-install -Sy linux-headers xorg-minimal xf86-input-libinput xf86-input-synaptics xf86-video-fbdev xautolocok xbacklight xclip xinit xmodmap xscreensaver xwallpaper libva
 	sudo xbps-install -Sy xf86-video-intel libva-intel-driver intel-ucode
 	sudo xbps-install -Sy alsa-utils pulseaudio alsa-plugins-pulseaudio
-	sudo xbps-install -Sy acpi acpid bash-completion connman dash dunst htop libnotify neovim pulsemixer redshit wpa_supplicant unclutter-xfixes
+	sudo xbps-install -Sy acpi acpid bash-completion connman dash dunst htop libnotify neovim pulsemixer redshift wpa_supplicant unclutter-xfixes
 	sudo xbps-install -Sy p7zip libzip unzip zip
 	sudo xbps-install -Sy python python-pip python-pyperclip
 	sudo xbps-install -Sy fontconfig font-inconsolata-otf font-libertine-otf fonts-droid-ttf font-awesome breeze-purple-cursor-theme
@@ -51,25 +51,13 @@ sleep 3s
 	sudo xbps-install -Sy mpv youtube-dl
 	sudo xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf
 	sudo xbps-install -Sy neofetch cmatrix
-	# sudo xbps-install -Sy gtk+3 plata-theme libreoffice-writer libreoffice-impress hunspell hunspell-en_US mythes
-	# sudo xbps-install -Sy libvirt qemu virt-manager
+	sudo xbps-install -Sy gtk+3 plata-theme libreoffice-writer hunspell hunspell-en_US mythes
+	sudo xbps-install -Sy libvirt qemu virt-manager
 
 	sudo pip install bs4
 	sudo pip install urllib5
 	sudo pip install ueberzug
 	sudo pip instlal keepmenu
-
-	#install st
-	cd ~/.config/st
-	sudo make clean install
-
-	#install dmenu
-	cd ~/.config/dmenu
-	sudo make clean install
-
-	#install slock
-	cd ~/.config/slock
-	sudo make cleak install
 
 	# install ttf-mononoki
 	sudo mv ~/.config/appearance/fonts/mononoki /usr/local/share/fonts/mononoki
@@ -131,10 +119,11 @@ sleep 3s
 	sudo usermod -aG input $USER
 	sudo usermod -aG audio $USER
 	sudo usermod -aG video $USER
-	# sudo usermod -aG libvirt $USER
-	# sudo usermod -aG kvm $USER
+	sudo usermod -aG libvirt $USER
+	sudo usermod -aG kvm $USER
 	sudo usermod -aG pulse-access $USER
 
 	sudo xbps-install -Syu
-
 clear
+
+echo "Don't forget to install st, dmenu, and slock with sudo make clean install"

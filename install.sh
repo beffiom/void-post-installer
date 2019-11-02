@@ -21,9 +21,9 @@ echo "Importing files from server..."
 sleep 3s
 	sudo xpbs-install -Sy git rsync
 	sudo rm -rvf ~/.*
-	git clone https://github.com/beffiom/linux-dotfiles/
-	rsync -rav ~/linux-dotfiles/.* ~/
-	sudo rm -rvf ~/linux-dotfiles/
+	git clone https://github.com/beffiom/dotfiles/
+	rsync -rav ~/dotfiles/.* ~/
+	sudo rm -rvf ~/dotfiles/
 	sudo rm -rvf ~/.git/
 	mkdir ~/Videos ~/Devices ~/Devices/A:A_Drive ~/Downloads ~/Music
 
@@ -50,6 +50,9 @@ sleep 3s
 	sudo xbps-install -Sy ffmpegthumbnailer poppler vifm
 	sudo xbps-install -Sy mpv youtube-dl
 	sudo xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf
+	sudo xbps-install -Sy neofetch cmatrix
+	# sudo xbps-install -Sy gtk+3 plata-theme libreoffice-writer libreoffice-impress hunspell hunspell-en_US mythes
+	# sudo xbps-install -Sy libvirt qemu virt-manager
 
 	sudo pip install bs4
 	sudo pip install urllib5

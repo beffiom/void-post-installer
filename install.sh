@@ -37,37 +37,32 @@ clear
 
 echo "Installing packages..."
 sleep 3s
-	sudo xbps-install -Sy linux-headers xorg-minimal xf86-input-libinput xf86-input-synaptics xf86-video-fbdev xautolocok xbacklight xclip xinit xmodmap xscreensaver xwallpaper libva
-	sudo xbps-install -Sy xf86-video-intel libva-intel-driver intel-ucode
+	sudo xbps-install -Sy linux5.4 linux5.4-headers xorg-minimal xf86-input-libinput xf86-input-synaptics linux-firmware-intel xf86-video-fbdev xautolock xbacklight xclip xinit xmodmap xscreensaver xwallpaper libva make gcc
+	sudo xbps-install -Sy xf86-video-intel libva-intel-driver
 	sudo xbps-install -Sy alsa-utils pulseaudio alsa-plugins-pulseaudio
-	sudo xbps-install -Sy acpi acpid bash-completion connman dash dunst htop libnotify neovim pulsemixer redshift wpa_supplicant unclutter-xfixes
+	sudo xbps-install -Sy acpi acpid bash-completion connman dash dunst htop libnotify neovim pulsemixer redshift wpa_supplicant unclutter-xfixes hunspell hunspell-en_US mythes
 	sudo xbps-install -Sy p7zip libzip unzip zip
 	sudo xbps-install -Sy python python-pip python-pyperclip
-	sudo xbps-install -Sy fontconfig font-inconsolata-otf font-libertine-otf fonts-droid-ttf font-awesome breeze-purple-cursor-theme
+	sudo xbps-install -Sy fontconfig nerd-fonts-otf font-awesome breeze-purple-cursor-theme
 	sudo xbps-install -Sy bspwm compton polybar sxhkd
-	sudo xbps-install -Sy firefox
+	sudo xbps-install -Sy qutebrowser
 	sudo xbps-install -Sy ffmpeg ImageMagick maim sxiv
 	sudo xbps-install -Sy ffmpegthumbnailer poppler vifm
-	sudo xbps-install -Sy mpv youtube-dl
-	sudo xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf
+	sudo xbps-install -Sy mpv youtube-dl castero newsboat
+	sudo xbps-install -Sy mpd mpc ncmpccp
+	sudo xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf kiwix-tools
 	sudo xbps-install -Sy neofetch cmatrix
-	sudo xbps-install -Sy gtk+3 plata-theme libreoffice-writer hunspell hunspell-en_US mythes
-	sudo xbps-install -Sy libvirt qemu virt-manager
+	# sudo xbps-install -Sy gtk+3 plata-theme libreoffice-writer
+	# sudo xbps-install -Sy libvirt qemu virt-manager ebtables dnsmasq
+	# sudo xbps-install -Sy minetest retroarch ppsspp
 
-	sudo pip install bs4
-	sudo pip install urllib5
-	sudo pip install ueberzug
-	sudo pip instlal keepmenu
-
-	# install ttf-mononoki
-	sudo mv ~/.config/appearance/fonts/mononoki /usr/local/share/fonts/mononoki
-	sudo chown root:staff /usr/local/share/fonts/mononoki -R
-	sudo chmod 644 /usr/local/share/fonts/mononoki/* -R
-	sudo chmod 755 /usr/local/share/fonts/mononoki
-	sudo fc-cache -fv
+	sudo pip3 install bs4
+	sudo pip3 install urllib5
+	sudo pip3 install ueberzug
+	sudo pip3 instlal keepmenu
 
 	sudo xbps-remove -Ry nano
-	sudo xbps-remove -Ooy
+	sudo xbps-remove -Oo
 
 clear
 

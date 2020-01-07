@@ -40,7 +40,7 @@ sleep 3s
 	doas xbps-install -Sy xorg xf86-input-libinput xf86-input-synaptics xf86-video-fbdev xautolock xbacklight xclip xclipboard xinit xmodmap xscreensaver xwallpaper libva make gcc base-devel libX11-devel libXrandr-devel libXft-devel libXinerama-devel pkg-config
 	doas xbps-install -Sy xf86-video-intel libva-intel-driver linux-firmware-intel
 	doas xbps-install -Sy alsa-utils pulseaudio alsa-plugins-pulseaudio
-	doas xbps-install -Sy acpi acpid bash-completion connman curl dash dunst htop libnotify neovim pulsemixer redshift st-terminfo wpa_supplicant unclutter-xfixes hunspell hunspell-en_US mythes
+	doas xbps-install -Sy acpi acpid bash-completion connman curl dash dunst htop libnotify neovim pulsemixer redshift st-terminfo wget wpa_supplicant unclutter-xfixes hunspell hunspell-en_US mythes
 	doas xbps-install -Sy p7zip libzip unzip zip
 	doas xbps-install -Sy python3 python3-devel python3-pip python3-pyperclip
 	doas xbps-install -Sy fontconfig nerd-fonts-otf font-awesome breeze-purple-cursor-theme
@@ -52,7 +52,7 @@ sleep 3s
 	doas xbps-install -Sy mpd mpc ncmpcpp
 	doas xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf kiwix-tools
 	doas xbps-install -Sy neofetch cmatrix
-	# doas xbps-install -Sy gtk+3 plata-theme libreoffice-writer
+	doas xbps-install -Sy gtk+3 plata-theme libreoffice-writer
 	# doas xbps-install -Sy libvirt qemu virt-manager ebtables dnsmasq
 	# doas xbps-install -Sy minetest retroarch ppsspp
 

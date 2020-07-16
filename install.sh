@@ -20,9 +20,9 @@ clear
 echo "Importing files from server..."
 sleep 3s
 	doas xbps-install -Sy git rsync
-	doas rm -rvf ~/.*
+	doas rm -rvf ~/*.
 	git clone https://github.com/beffiom/dotfiles/
-	rsync -rav ~/void-post-installer/dotfiles/.* ~/
+	rsync -rav ~/void-post-installer/dotfiles/*. ~/
 	doas rm -rvf ~/dotfiles/
 	doas rm -rvf ~/.git/
 	mkdir ~/Videos ~/Devices ~/Devices/A:A_Drive ~/Downloads ~/Music
@@ -40,22 +40,22 @@ sleep 3s
 	doas xbps-install -Sy xorg xf86-input-libinput xf86-input-synaptics xf86-video-fbdev xautolock xbacklight xclip xclipboard xinit xmodmap xscreensaver xwallpaper libva make gcc base-devel libX11-devel libXrandr-devel libXft-devel libXinerama-devel pkg-config
 	doas xbps-install -Sy xf86-video-intel libva-intel-driver linux-firmware-intel
 	doas xbps-install -Sy alsa-utils pulseaudio alsa-plugins-pulseaudio
-	doas xbps-install -Sy bluez bluez-alsa libbluetooth
+	# doas xbps-install -Sy bluez bluez-alsa libbluetooth
 	doas xbps-install -Sy acpi acpid bash-completion connman curl dash dunst htop libnotify neovim pulsemixer redshift st-terminfo wget wpa_supplicant unclutter-xfixes hunspell hunspell-en_US mythes
 	doas xbps-install -Sy p7zip libzip unzip zip
 	doas xbps-install -Sy python3 python3-devel python3-pip python3-pyperclip
-	doas xbps-install -Sy fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf ttf-ubuntu-font-family font-awesome breeze-purple-cursor-theme
+	doas xbps-install -Sy fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-symbola ttf-ubuntu-font-family font-awesome breeze-purple-cursor-theme
 	doas xbps-install -Sy bspwm compton polybar sxhkd
 	doas xbps-install -Sy qutebrowser
 	doas xbps-install -Sy ffmpeg ImageMagick maim sxiv
-	doas xbps-install -Sy ffmpegthumbnailer ffmpegthumbs poppler vifm
-	doas xbps-install -Sy mpv youtube-dl castero newsboat
-	doas xbps-install -Sy mpd mpc ncmpcpp inotify-tools
-	doas xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf kiwix-tools
+	doas xbps-install -Sy ffmpegthumbnailer ffmpegthumbs poppler vifm pcmanfm
+    doas xbps-install -Sy mpv youtube-dl castero newsboat
+	doas xbps-install -Sy mpd mpc ncmpcpp inotify-tools rtorrent
+	doas xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf
 	doas xbps-install -Sy neofetch cmatrix
-	doas xbps-install -Sy gtk+3 plata-theme
-	doas xbps-install -Sy libvirt qemu virt-manager ebtables dnsmasq
-	# doas xbps-install -Sy minetest retroarch ppsspp
+	doas xbps-install -Sy gtk+3 lxappearance numix-themes
+	doas xbps-install -Sy libvirt qemu virt-manager ebtables dnsmasq privoxy dnscrypt-proxy
+	doas xbps-install -Sy minetest retroarch ppsspp openrct2 dolphin-emu xonotic speed-dreams xmoto
 
 	pip3 install bs4
 	pip3 install urllib5
@@ -91,7 +91,7 @@ sleep 3s
 	doas ln -sf /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 
 	doas ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
-	doas hwclock --systohc --utc
+	doas hwclock --systohc --localtime
 
 	doas ln -s /bin/dash /bin/sh
 

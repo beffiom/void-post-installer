@@ -3,7 +3,7 @@ installs my dotfiles and key programs after a minimal void linux install
 
 ## instructions
 1. login as root
-2. `xbps-install doas nvim`
+2. `xbps-install opendoas neovim`
 3. `nvim /etc/doas.conf`
 4. add this line:    permit :wheel nopass
 5. save and reboot

@@ -41,7 +41,7 @@ sleep 3s
 	doas xbps-install -Sy xf86-video-intel libva-intel-driver linux-firmware-intel
 	doas xbps-install -Sy alsa-utils pulseaudio alsa-plugins-pulseaudio
 	doas xbps-install -Sy bluez bluez-alsa libbluetooth
-	doas xbps-install -Sy acpi acpid bash-completion NetworkManager networkmanager-dmenu curl dash dunst htop libnotify neovim pulsemixer redshift st-terminfo wget wpa_supplicant unclutter-xfixes hunspell hunspell-en_US mythes
+	doas xbps-install -Sy acpi acpid bash-completion NetworkManager curl dash dunst htop libnotify neovim pulsemixer redshift st-terminfo wget wpa_supplicant unclutter-xfixes hunspell hunspell-en_US mythes
 	doas xbps-install -Sy p7zip libzip unzip zip
 	doas xbps-install -Sy python3 python3-dbus python3-devel python3-pip python3-pyperclip
 	doas xbps-install -Sy fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-symbola font-awesome5 breeze-purple-cursor-theme
@@ -54,8 +54,8 @@ sleep 3s
 	doas xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf
 	doas xbps-install -Sy neofetch cmatrix
 	doas xbps-install -Sy gtk+3 lxappearance Adapta
-	doas xbps-install -Sy libvirt qemu virt-manager ebtables dnsmasq privoxy dnscrypt-proxy
-	# doas xbps-install -Sy kodi kodi-addon-inputstream-adaptive kodi-addon-peripheral-joystick minetest retroarch ppsspp openrct2 dolphin-emu xonotic speed-dreams xmoto
+	doas xbps-install -Sy libvirt qemu virt-manager dnsmasq privoxy dnscrypt-proxy
+	doas xbps-install -Sy kodi kodi-addon-inputstream-adaptive kodi-addon-peripheral-joystick
 
 	pip install bs4
 	pip install urllib5

@@ -33,7 +33,7 @@ sleep 3s
 	    NetworkManager wpa_supplicant \
 	    dunst libnotify inotify-tools \
 	    p7zip libzip unzip zip \
-	    fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-awesome5 breeze-purple-cursor-theme hunspell hunspell-en_US mythes \
+	    fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-awesome5 breeze-purple-cursor-theme nerd-fonts hunspell hunspell-en_US mythes \
 	    foot neovim bash-completion atuin ripgrep bat fd zoxide neofetch cmatrix wget curl httrack htop nushell dash yt-dlp gallery-dl udisks2 recutils tofi rbw tldr fzf \
 	    python3 python3-dbus python3-devel python3-pip python3-pyperclip clojure babashka clj-kondo clojure-lsp joker leiningen openjdk-common nodejs \
 	    qutebrowser chromium podman emacs \
@@ -42,6 +42,7 @@ sleep 3s
 	    zathura zathura-cb zathura-djvu zathura-pdf-mupdf \
 	    gtk+3 lxappearance Adapta
 	doas xbps-remove -Oo
+ 	curl -sS https://starship.rs/install.sh | sh
 
 echo "Configuring system..."
 sleep 3s
@@ -67,6 +68,7 @@ sleep 3s
 	doas ln -sf /usr/share/fontconfig/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d/
 	doas ln -sf /usr/share/fontconfig/conf.avail/50-user.conf /etc/fonts/conf.d/
 	doas ln -sf /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
+ 	starship preset nerd-font-symbols -o ~/.config/starship.toml
 
 	doas ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 	doas hwclock --systohc --localtime

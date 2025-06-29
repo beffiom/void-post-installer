@@ -92,13 +92,9 @@ sleep 3s
 
 	echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 	echo "LANG=en_US.UTF-8" >> /etc/environment
-	locale-gen
+	xbps-reconfigure glibc-locales
 
-	doas chmod +x ~/.local/bin/*
-	doas chmod +x ~/.config/bspwm/*
-	doas chmod +x ~/.config/sxhkd/*
-
-	xmodmap ~/.config/appearance/Xmodmap
+	doas chmod +x ~/.config/userscripts/*
 
 	# Finish
 	cd ~/
@@ -120,4 +116,4 @@ sleep 3s
 	doas xbps-install -Syu
 clear
 
-echo "Setup complete, please restart."
+echo "Setup complete, please reboot."

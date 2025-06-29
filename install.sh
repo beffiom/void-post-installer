@@ -15,8 +15,8 @@ sleep 3s
 
 echo "Updating system..."
 sleep 3s
+	sudo xmirror
 	doas xbps-install -Syu
- 	sudo xmirror
 
 echo "Installing packages..."
 sleep 3s

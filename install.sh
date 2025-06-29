@@ -21,12 +21,10 @@ echo "Importing files from server..."
 sleep 3s
 	doas xbps-install -Sy git rsync
 	doas rm -rvf ~/.*
-	git clone https://github.com/beffiom/dotfiles/
-	rsync -rav ~/void-post-installer/dotfiles/.* ~/
-	doas rm -rvf ~/.git/
-	mkdir ~/Videos ~/Devices ~/Devices/A:A_Drive ~/Downloads ~/Music
-	mkdir ~/.config/rtorrent/.session ~/.config/rtorrent/watch ~/.config/rtorrent/downloads
-
+	git clone https://github.com/beffiom/dotfiles-void
+	rsync -rav ~/void-post-installer/dotfiles-void/* ~/
+	doas rm -rvf ~/.git/ ~/Downloads
+	mkdir -p ~/documents ~/media ~/downloads
 clear
 
 echo "Updating system..."
@@ -37,33 +35,28 @@ clear
 
 echo "Installing packages..."
 sleep 3s
-	doas xbps-install -Sy xorg xf86-input-libinput xf86-input-synaptics xf86-video-fbdev xautolock xbacklight xclip xclipboard xinit xmodmap xscreensaver xwallpaper libva make gcc base-devel libX11-devel libXrandr-devel libXft-devel libXinerama-devel pkg-config ntp ntfs-3g
-	doas xbps-install -Sy xf86-video-intel libva-intel-driver linux-firmware-intel
-	doas xbps-install -Sy alsa-utils pulseaudio alsa-plugins-pulseaudio
-	doas xbps-install -Sy bluez bluez-alsa libbluetooth
-	doas xbps-install -Sy acpi acpid bash-completion NetworkManager curl dash dunst htop libnotify neovim pulsemixer redshift st-terminfo wget wpa_supplicant unclutter-xfixes hunspell hunspell-en_US mythes
-	doas xbps-install -Sy p7zip libzip unzip zip
-	doas xbps-install -Sy python3 python3-dbus python3-devel python3-pip python3-pyperclip
-	doas xbps-install -Sy fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-symbola font-awesome5 breeze-purple-cursor-theme
-	doas xbps-install -Sy bspwm compton polybar sxhkd
-	doas xbps-install -Sy qutebrowser
-	doas xbps-install -Sy ffmpeg ImageMagick maim sxiv
-	doas xbps-install -Sy ffmpegthumbnailer ffmpegthumbs poppler vifm
-    doas xbps-install -Sy mpv youtube-dl castero newsboat playerctl mpv-mpris
-	doas xbps-install -Sy mpd mpc ncmpcpp inotify-tools rtorrent
-	doas xbps-install -Sy zathura zathura-cb zathura-djvu zathura-pdf-mupdf
-	doas xbps-install -Sy neofetch cmatrix
-	doas xbps-install -Sy gtk+3 lxappearance Adapta
-	doas xbps-install -Sy libvirt qemu virt-manager dnsmasq privoxy dnscrypt-proxy
-	doas xbps-install -Sy kodi kodi-addon-inputstream-adaptive kodi-addon-peripheral-joystick
-
-	pip install bs4
-	pip install urllib5
-	pip install ueberzug
-	pip install keepmenu
-	pip install castero
-
-	doas xbps-remove -Ry nano
+	doas xbps-install -Sy \
+    		sway wl-clipboard wlroots wayland wayland-protocols swaybg swayidle wtype xdg-desktop-portal-wlr xorg-server-xwayland slurp grim \
+    		libinput seatd elogind \
+    		linux-firmware-amd mesa vulkan-loader vulkan-tools mesa-demos amdvlk \
+    		libva make gcc base-devel pkg-config libva-utils \
+    		ntfs-3g btrfs-progs ntp	cryptsetup \
+		light brightnessctl redshift \
+		alsa-utils pulseaudio alsa-plugins-pulseaudio pipewire pulsemixer \
+  		bluez bluez-alsa libbluetooth bluetuith \
+    		acpi acpid \ 
+      		NetworkManager wpa_supplicant \
+		dunst libnotify inotify-tools \
+		p7zip libzip unzip zip \
+  		fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-symbola font-awesome5 breeze-purple-cursor-theme hunspell hunspell-en_US mythes \
+ 		foot neovim bash-completion atuin ripgrep bat fd zoxide neofetch cmatrix wget curl httrack htop nushell dash yt-dlp gallery-dl udisks2 recutils tofi rbw tldr fzf \
+		python3 python3-dbus python3-devel python3-pip python3-pyperclip clojure babashka clj-kondo clojure-lsp joker leiningen openjdk nodejs \
+  		qutebrowser chromium podman emacs \
+    		mpv playerctl mpv-mpris ffmpeg \
+		mpd mpc ncmpcpp beets \
+		zathura zathura-cb zathura-djvu zathura-pdf-mupdf \
+		gtk+3 lxappearance Adapta \
+ 
 	doas xbps-remove -Oo
 
 clear
@@ -127,4 +120,4 @@ sleep 3s
 	doas xbps-install -Syu
 clear
 
-echo "Don't forget to install st, dmenu, and slock with doas make clean install"
+echo "Setup complete, please restart."

@@ -23,7 +23,7 @@ sleep 3s
 	doas rm -rvf ~/.*
 	git clone https://github.com/beffiom/dotfiles-void
 	rsync -rav ~/void-post-installer/dotfiles-void/* ~/
-	doas rm -rvf ~/.git/ ~/Downloads
+	doas rm -rvf ~/.git/ ~/Downloads ~/README.md ~/LICENSE
 	mkdir -p ~/documents ~/media ~/downloads
 clear
 

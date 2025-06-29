@@ -1,44 +1,29 @@
 #!/bin/bash
 # Void Linux post-install script
 
-bypass() {
-	doas
-	while true;
-	do
-	  doas -n true
-	  sleep 45
-	  kill -0 "$$" || exit
-	done 2>/dev/null &
-}
-
 echo "Starting Void Linux post-install script..."
 sleep 3s
-	bypass
-
-clear
+	doas -v
 
 echo "Importing files from server..."
 sleep 3s
 	doas xbps-install -Sy git rsync
 	doas rm -rvf ~/.*
-	git clone https://github.com/beffiom/dotfiles-void ~
+	git clone https://github.com/beffiom/dotfiles-void ~/dotfiles-void
 	doas rsync -rav ~/dotfiles-void/* ~/
 	doas rm -rvf ~/.git/ ~/Downloads ~/README.md ~/LICENSE
 	mkdir -p ~/documents ~/media ~/downloads
-clear
 
 echo "Updating system..."
 sleep 3s
 	doas xbps-install -Syu
-
-clear
 
 echo "Installing packages..."
 sleep 3s
 	doas xbps-install -Sy \
 	    sway wl-clipboard wlroots wayland wayland-protocols swaybg swayidle wtype xdg-desktop-portal-wlr xorg-server-xwayland slurp grim \
 	    libinput seatd elogind \
-	    linux-firmware-amd mesa vulkan-loader vulkan-tools mesa-demos amdvlk \
+	    linux-firmware-amd mesa vulkan-loader Vulkan-Tools mesa-demos amdvlk \
 	    libva make gcc base-devel pkg-config libva-utils \
 	    ntfs-3g btrfs-progs ntp cryptsetup \
 	    light brightnessctl redshift \
@@ -60,7 +45,6 @@ sleep 3s
  
 	doas xbps-remove -Oo
 
-clear
 
 echo "Configuring system..."
 sleep 3s
@@ -101,7 +85,6 @@ sleep 3s
 	# Finish
 	cd ~/
 
-clear
 
 echo "Adding user to some groups..."
 sleep 3s
@@ -117,6 +100,5 @@ sleep 3s
 
 
 	doas xbps-install -Syu
-clear
 
 echo "Setup complete, please reboot."

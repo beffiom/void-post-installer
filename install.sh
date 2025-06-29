@@ -21,8 +21,8 @@ echo "Importing files from server..."
 sleep 3s
 	doas xbps-install -Sy git rsync
 	doas rm -rvf ~/.*
-	git clone https://github.com/beffiom/dotfiles-void
-	cp -rf ~/void-post-installer/dotfiles-void/* ~/
+	git clone https://github.com/beffiom/dotfiles-void ~
+	doas rsync -rav ~/dotfiles-void/* ~/
 	doas rm -rvf ~/.git/ ~/Downloads ~/README.md ~/LICENSE
 	mkdir -p ~/documents ~/media ~/downloads
 clear
@@ -36,26 +36,27 @@ clear
 echo "Installing packages..."
 sleep 3s
 	doas xbps-install -Sy \
-    		sway wl-clipboard wlroots wayland wayland-protocols swaybg swayidle wtype xdg-desktop-portal-wlr xorg-server-xwayland slurp grim \
-    		libinput seatd elogind \
-    		linux-firmware-amd mesa vulkan-loader Vulkan-Tools mesa-demos amdvlk \
-    		libva make gcc base-devel pkg-config libva-utils \
-    		ntfs-3g btrfs-progs ntp	cryptsetup \
-		light brightnessctl redshift \
-		alsa-utils pulseaudio alsa-plugins-pulseaudio pipewire pulsemixer \
-  		bluez bluez-alsa libbluetooth bluetuith \
-    		acpi acpid \ 
-      		NetworkManager wpa_supplicant \
-		dunst libnotify inotify-tools \
-		p7zip libzip unzip zip \
-  		fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-symbola font-awesome5 breeze-purple-cursor-theme hunspell hunspell-en_US mythes \
- 		foot neovim bash-completion atuin ripgrep bat fd zoxide neofetch cmatrix wget curl httrack htop nushell dash yt-dlp gallery-dl udisks2 recutils tofi rbw tldr fzf \
-		python3 python3-dbus python3-devel python3-pip python3-pyperclip clojure babashka clj-kondo clojure-lsp joker leiningen openjdk nodejs \
-  		qutebrowser chromium podman emacs \
-    		mpv playerctl mpv-mpris ffmpeg \
-		mpd mpc ncmpcpp beets \
-		zathura zathura-cb zathura-djvu zathura-pdf-mupdf \
-		gtk+3 lxappearance Adapta \
+	    sway wl-clipboard wlroots wayland wayland-protocols swaybg swayidle wtype xdg-desktop-portal-wlr xorg-server-xwayland slurp grim \
+	    libinput seatd elogind \
+	    linux-firmware-amd mesa vulkan-loader vulkan-tools mesa-demos amdvlk \
+	    libva make gcc base-devel pkg-config libva-utils \
+	    ntfs-3g btrfs-progs ntp cryptsetup \
+	    light brightnessctl redshift \
+	    alsa-utils pulseaudio alsa-plugins-pulseaudio pipewire pulsemixer \
+	    bluez bluez-alsa libbluetooth bluetuith \
+	    acpi acpid \
+	    NetworkManager wpa_supplicant \
+	    dunst libnotify inotify-tools \
+	    p7zip libzip unzip zip \
+	    fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-symbola font-awesome5 breeze-purple-cursor-theme hunspell hunspell-en_US mythes \
+	    foot neovim bash-completion atuin ripgrep bat fd zoxide neofetch cmatrix wget curl httrack htop nushell dash yt-dlp gallery-dl udisks2 recutils tofi rbw tldr fzf \
+	    python3 python3-dbus python3-devel python3-pip python3-pyperclip clojure babashka clj-kondo clojure-lsp joker leiningen openjdk nodejs \
+	    qutebrowser chromium podman emacs \
+	    mpv playerctl mpv-mpris ffmpeg \
+	    mpd mpc ncmpcpp beets \
+	    zathura zathura-cb zathura-djvu zathura-pdf-mupdf \
+	    gtk+3 lxappearance Adapta
+
  
 	doas xbps-remove -Oo
 

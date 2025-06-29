@@ -33,7 +33,7 @@ sleep 3s
 	    NetworkManager wpa_supplicant \
 	    dunst libnotify inotify-tools \
 	    p7zip libzip unzip zip \
-	    fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-awesome5 breeze-purple-cursor-theme nerd-fonts hunspell hunspell-en_US mythes \
+	    fontconfig noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf font-awesome5 breeze-purple-cursor-theme breeze-snow-cursor-theme nerd-fonts hunspell hunspell-en_US mythes \
 	    foot neovim bash-completion atuin ripgrep bat fd zoxide neofetch cmatrix wget curl httrack htop nushell dash yt-dlp gallery-dl udisks2 recutils tofi rbw tldr fzf \
 	    python3 python3-dbus python3-devel python3-pip python3-pyperclip clojure babashka clj-kondo clojure-lsp joker leiningen openjdk-common nodejs \
 	    qutebrowser chromium podman emacs \

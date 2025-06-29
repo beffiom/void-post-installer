@@ -21,7 +21,7 @@ sleep 3s
 echo "Installing packages..."
 sleep 3s
 	doas xbps-install -Sy \
-	    sway wl-clipboard wlroots wayland wayland-protocols swaybg swayidle wtype xdg-desktop-portal-wlr xorg-server-xwayland slurp grim \
+	    sway wl-clipboard wlroots wayland wayland-protocols swaybg swayidle swaylock wtype xdg-desktop-portal-wlr xorg-server-xwayland slurp grim \
 	    libinput seatd elogind \
 	    linux-firmware-amd mesa vulkan-loader Vulkan-Tools mesa-demos amdvlk \
 	    libva make gcc base-devel pkg-config libva-utils \
